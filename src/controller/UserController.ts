@@ -3,6 +3,10 @@ import { AppDataSource } from '../data-source';
 import User from '../entity/User';
 
 class UserController{
+    index(req: Request, res:Response){
+        return res.send({userId: req.userId});
+    }
+
    async store(req: Request, res: Response){
         const repository = AppDataSource.getRepository(User);
         const {email, password} = req.body;
